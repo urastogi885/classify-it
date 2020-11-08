@@ -6,6 +6,10 @@ __pycache__/
 # Compressed files
 *.zip
 
+# Matlab files
+*.prj
+resources/
+
 # C extensions
 *.so
 
