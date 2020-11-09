@@ -8,7 +8,9 @@ function accuracy = knn_classifier(k, test_data, train_data, label_test, label_t
         for j = 1:len_train
             dist(j, 1) = (test_data(:,i) - train_data(:,j))'*(test_data(:,i) - train_data(:,j));
         end
+        % Sort the nearest neighbor data
         [~, indices] = sort(dist);
+        % Extract the indices of k-nearest neighbors
         for m=1:k
             min_labels(m) = label_train(indices(m));
         end
