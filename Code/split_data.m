@@ -1,4 +1,4 @@
-function [train_data, test_data, dim, total_classes, len_train_class, len_test, label_test] = split_data(dataset_index)
+function [train_data, test_data, dim, total_classes, len_train_class, len_test_class, len_train, len_test, label_train, label_test] = split_data(dataset_index)
     if dataset_index == '1'
         load Data\pose.mat pose;
         size_data = size(pose);
