@@ -8,6 +8,7 @@ __pycache__/
 
 # Matlab files
 *.prj
+*.asv
 resources/
 
 # C extensions
