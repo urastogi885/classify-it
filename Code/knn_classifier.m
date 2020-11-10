@@ -1,6 +1,5 @@
 function accuracy = knn_classifier(k, test_data, train_data, label_test, label_train, len_test, len_train)
     % Predict the output for each test case and verify the correctness of your classifier's prediction
-    k = str2double(k);
     dist = zeros(len_train, 1);
     min_labels = zeros(k, 1);
     accuracy = 0.0;
