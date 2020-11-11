@@ -93,8 +93,9 @@ function [train_data, test_data, dim, total_classes, len_train_class, len_test_c
         dim = size_data(1)*size_data(2);
         total_classes = 2;
         len_class = size_data(3)/3;
+        split_ratio = 0.75;
         % No. of samples for testing and training in each class
-        len_train_class = 0.75*len_class;
+        len_train_class = split_ratio*len_class;
         len_test_class = len_class-len_train_class;
         % No. of samples in the testing and training data
         len_train = len_train_class*total_classes;
@@ -112,6 +113,10 @@ function [train_data, test_data, dim, total_classes, len_train_class, len_test_c
             neutral(:,i) = reshape(face(:,:,3*i-2), [dim,1]);
             facial_exp(:,i) = reshape(face(:,:,3*i-1), [dim,1]);
         end
+        % Randomize sample selection for training and testing data
+        order = randperm(size_data(3)/3);
+        neutral = neutral(:, order);
+        facial_exp = facial_exp(:, order);
 
         % Add images to the training data set
         train_data(:,1:len_train_class) = neutral(:,1:len_train_class);
