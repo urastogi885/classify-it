@@ -5,7 +5,7 @@ function accuracy = knn_classifier(k, test_data, train_data, label_test, label_t
     accuracy = 0.0;
     for i=1:len_test
         for j = 1:len_train
-            dist(j, 1) = (test_data(:,i) - train_data(:,j))'*(test_data(:,i) - train_data(:,j));
+            dist(j) = (test_data(:,i) - train_data(:,j))'*(test_data(:,i) - train_data(:,j));
         end
         % Sort the nearest neighbor data
         [~, indices] = sort(dist);
