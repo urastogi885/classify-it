@@ -1,4 +1,4 @@
-function [train_data, test_data, dim, total_classes, len_train_class, len_test_class, len_train, len_test, label_train, label_test] = split_data(dataset_index)
+function [train_data, test_data, dim, total_classes, len_train_class, len_test_class, len_train, len_test, label_train, label_test, prior] = split_data(dataset_index)
     if dataset_index == '1'
         load Data\pose.mat pose;
         size_data = size(pose);
@@ -11,6 +11,8 @@ function [train_data, test_data, dim, total_classes, len_train_class, len_test_c
         % No. of samples in the testing and training data
         len_train = len_train_class*total_classes;
         len_test = len_test_class*total_classes;
+        % Get prior probability for the data set
+        prior = len_train_class/len_train;
         % Testing and training data sets
         train_data = zeros(dim, len_train);
         test_data = zeros(dim, len_test);
@@ -39,6 +41,8 @@ function [train_data, test_data, dim, total_classes, len_train_class, len_test_c
         % No. of samples in the testing and training data
         len_train = len_train_class*total_classes;
         len_test = len_test_class*total_classes;
+        % Get prior probability for the data set
+        prior = len_train_class/len_train;
         % Testing and training data sets
         train_data = zeros(dim, len_train);
         test_data = zeros(dim, len_test);
@@ -67,6 +71,8 @@ function [train_data, test_data, dim, total_classes, len_train_class, len_test_c
         % No. of samples in the testing and training data
         len_train = len_train_class*total_classes;
         len_test = len_test_class*total_classes;
+        % Get prior probability for the data set
+        prior = len_train_class/len_train;
         % Testing and training data sets
         train_data = zeros(dim, len_train);
         test_data = zeros(dim, len_test);
@@ -100,6 +106,9 @@ function [train_data, test_data, dim, total_classes, len_train_class, len_test_c
         % No. of samples in the testing and training data
         len_train = len_train_class*total_classes;
         len_test = len_test_class*total_classes;
+        % Get prior probability for the data set
+        prior = len_train_class/len_train;
+        % Get samples for various classes
         neutral = zeros(dim, size_data(3)/3);
         facial_exp = zeros(dim, size_data(3)/3);
         % Testing and training data sets
