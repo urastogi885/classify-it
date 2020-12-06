@@ -10,6 +10,32 @@ The tasks were performed using 4 classifiers, namely, Bayes, k-Nearest Neighbor 
 ## Dependencies
 - MATLAB
 
+## Pipeline
+- First, we perform preprocessing on the required data set where it is reshaped to shift all the feature data into a single column. Note that this is not done for Illumination.mat data set. The data set is also split into training and testing data sets.
+- Labels for training and testing data sets are generated as well during preprocessing.
+- We preform the user selected analysis on the training data such as PCA and MDA. The user can select to perform no analysis as well.
+- Training data is fed to the user selected classifier for learning.
+- Finally, accuracy of the classifier is measured by employing the classifier on the testing data.
+
+## Results
+Task 1: Identification of each of the subjects in the given data sets
+- The Illumination.mat and Pose.mat data sets have 2 testing samples per subject. In the Data.mat data set, 1 testing sample has been taken for each subject. The rest of the samples are used for training.
+- For this task, the change in the accuracy of the Bayes and kNN classifiers was studied when PCA, MDA, or no analysis is applied to the training data before feeding it to the classifiers. Figure 1 shows the accuracy of all the classifiers on various data sets under varying analysis methods such as PCA and MDA. Note that I have taken 3 nearest neighbors for my analysis of the kNN classifier.
+
+<p align="center">
+  <img src="https://github.com/urastogi885/classify-it/blob/main/graphs/task1.png">
+  <br><b>Figure 1 - Accuracy of the Bayes and kNN classifier under various analysis methods</b><br>
+</p>
+
+Task 2: Classification of neutral vs facial expression
+- Here, Data.mat was used as the data set. A split ratio of 0.25:0.75 (testtotrain) was kept. Each run sources random samples for the training and testing data sets while maintaining the split ratio.
+- A total of 4 experiments were done in this task:
+  - Test the impact of samples included for training
+  - Test the impact of number of nearest neighbors for kNN
+  - Test the impact of r and σ in Kernel SVM
+  - Test the performance of the Boosted SVM classifier
+- The results of the above experiments can be found in the [report](https://github.com/urastogi885/classify-it/blob/main/report.pdf).
+
 ## Run
 - Clone the repo either by downloading the zip version from github or using shell into your MATLAB worspace.
 ```
