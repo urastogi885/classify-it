@@ -1,4 +1,5 @@
 # Classify-It
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/urastogi885/classify-it/blob/main/LICENSE)
 
 ## Overview
 The project revolves around 2 major tasks: identification of each of the subjects in the given data sets and 
